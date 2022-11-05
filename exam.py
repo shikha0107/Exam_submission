@@ -1,64 +1,121 @@
-from tkinter import *
+import tkinter as tk
+from tkinter import ttk
+root=tk.Tk()
+root.config(bg="powder blue")
+root.geometry("1305x652")
+firstname=tk.StringVar()
+last_name=tk.StringVar()
+email=tk.StringVar()
+add=tk.StringVar()
+def b1():
+    a = firstname.get()
+    b = last_name.get()
+    c=email.get()
+    d=add.get()
+    lb1.insert(1, a)
+    lb1.insert(2,b)
+    lb1.insert(3,c)
+    lb1.insert(4,d)
 
-shikha = Tk()
-shikha.geometry("1224x2564")
-shikha.title("Billing System")
+   
+def b2():
+    firstname.set("")
+    last_name.set("")
+    email.set("")
+    add.set("")
 
-# insert function
-def insert_():
-    pass
-#delete function
-def delete_():
-    pass
-
-#theme function
-def theme_():
-        pass
-#creating labels
-name = Label(shikha, text="First Name: ", font="timesnewroman 12 bold").grid(row=1, column=2, padx=22, pady=10)
-lname = Label(shikha, text="Last Name: ", font="timesnewroman 12 bold").grid(row=2, column=2, padx=22, pady=10)
-gender = Label(shikha, text="Gender: ", font="timesnewroman 12 bold").grid(row=3, column=2, padx=22, pady=10)
-lang = Label (shikha, text="Languages: ", font="timesnewroman 12 bold").grid(row=4, column=2, padx=22, pady=10)
-email = Label(shikha, text="Email: ", font="timesnewroman 12 bold").grid(row=5, column=2, padx=22, pady=10)
-address = Label(shikha, text = "Address: ", font="timesnewroman 12 bold").grid(row=6, column=2, padx=32, pady=50)
-state = Label(shikha, text = "State: ", font="timesnewroman 12 bold").grid(row=7, column=2, padx=22, pady=10)
-zip_= Label(shikha, text = "Zip code: ", font="timesnewroman 12 bold").grid(row=8, column=2, padx=22, pady=10)
-cr_card  = Label(shikha, text= "Credit Card Type", font="timesnewroman 12 bold").grid(row=9, column=2, padx=22, pady=10)
-
-#making variables to get user input
-namevalue = StringVar()
-lnamevalue = StringVar()
-gendervalue = IntVar()
-gendervalue.set(1)
-teluguvalue = IntVar()
-englishvalue = IntVar()
-hindivalue = IntVar()
-mailvalue = StringVar()
-addressvalue = StringVar()
-statevalue = StringVar()
-zipvalue = IntVar()
-crcardvalue = StringVar()
+def b3():
+    root.config(bg="black")
+    lb1.config(bg="red")
+    f.config(bg="sky blue")
 
 
+f=tk.Frame(root,height=800,width=470,bg='white',bd=10,relief='groove')
+f.place(x=10,y=20)
 
-#getting user input
-name_entry = Entry(shikha, textvariable= namevalue).grid(row = 1, column=3)
-lname_entry = Entry(shikha, textvariable=lnamevalue).grid(row=2, column=3)
-gender_entry= Radiobutton(shikha, text="MALE", variable= gendervalue, value = 1).grid(row=3, column=3)
-gender_entry= Radiobutton(shikha, text="FEMALE", variable= gendervalue, value = 2).grid(row=3, column=4)
-lang_entry = Checkbutton(shikha, text = "Telugu", variable=teluguvalue).grid(row = 4, column=3)
-lang_entry = Checkbutton(shikha, text = "English", variable=englishvalue).grid(row = 4, column=4)
-lang_entry = Checkbutton(shikha, text = "Hindi", variable=hindivalue).grid(row = 4, column=5)
-mail_entry = Entry(shikha, textvariable=mailvalue).grid(row = 5, column=3)
-add_entry =Text(shikha,height=11,width=20,wrap="word").grid(row = 6, column=3)
-sb = Scrollbar(add_entry).grid(row = 6, column=3)
-state_entry = Entry(shikha, textvariable=statevalue).grid(row =7, column=3)
-zip_entry = Entry(shikha, textvariable=zipvalue).grid(row = 8, column=3)
-cr_card_Entry = Entry(shikha, textvariable=crcardvalue).grid(row = 9, column=3)
 
-#adding the three buttons
-insert_b = Button(shikha, command=insert_, text="INSERT", font="timesnewroman 8 bold", padx=18, pady=6).grid(row=4, column =7, padx=20, pady=10)
-delete_b= Button(shikha, command=delete_, text="DELETE", font="timesnewroman 8 bold", padx=18, pady=6).grid(row=6, column =7, padx=20, pady=10)
-theme_b = Button(shikha, command=theme_, text="THEME", font="timesnewroman 8 bold", padx=18, pady=6).grid(row=7, column =7, padx=20, pady=10)
+l1=tk.Label(f,text="first name" ,font="arial 10 bold")
+l2=tk.Label(f,text="last name ",font="arial 10 bold")
+l3=tk.Label(f,text="gender",font="arial 10 bold")
+l4=tk.Label(f,text="language",font="arial 10 bold")
+l5=tk.Label(f,text="email",font="arial 10 bold")
+l6=tk.Label(f,text="address",font="arial 10 bold")
+l7=tk.Label(f,text="state",font="arial 10 bold")
+l8=tk.Label(f,text="zip",font="arial 10 bold")
+l9=tk.Label(f,text=" credit card type",font="arial 10 bold")
 
-shikha.mainloop()
+e1=tk.Entry(f,textvariable=firstname,font="arial 10 bold")
+e2=tk.Entry(f,textvariable=last_name,font="arial 10 bold")
+e3=tk.Entry(f,textvariable=email,font="arial 10 bold")
+e4=tk.Entry(f,textvariable=add,font="arial 10 bold")
+e5=tk.Entry(f,font="arial 10 bold")
+
+
+r1=tk.Radiobutton(f,text="male", value="male",font="arial 10 bold")
+r2=tk.Radiobutton(f,text="female", value="female",font="arial 10 bold")
+
+c1=tk.Checkbutton(f,text="telugu")
+c2=tk.Checkbutton(f,text="english")
+c3=tk.Checkbutton(f,text="hindi")
+
+n = tk.StringVar()
+c = ttk.Combobox(f, width = 27, textvariable = n)
+c['values'] = ('gujrat','rajasthan','maharastra','goa')
+
+n = tk.StringVar()
+cb = ttk.Combobox(f, width = 27, textvariable = n)
+cb['values'] = ('bob','state bank of india','maharastra','goa bank ')
+
+
+# li=tk.Listbox(root,width=50,height=20,bg="grey",font="Arail 14 bold")
+# li.grid(row=5,column=0,rowspan=10)
+
+lb1=tk.Listbox(root,width=50,height=20,bg="light grey",font="Arail 14 bold")
+
+# lb1.grid(row=1,column=12,columnspan=3)
+
+
+b1=tk.Button(root,text="insert",font=("ArialBold",12),width=7,height=1,bd=3,command=b1)
+b1.pack()
+# b1.grid(row=6,column=20,padx=40)
+b2=tk.Button(root,text="delete",font=("ArialBold",12),width=7,height=1,bd=3,command=b2)
+b2.pack()
+# b2.grid(row=7,column=20,padx=40)
+b3=tk.Button(root,text="theme",font=("ArialBold",12),width=7,height=1,bd=3,command=b3)
+b3.pack()
+# b3.grid(row=8,column=20,padx=40)
+
+
+
+
+# li.insert(1,"hello")
+# li.insert(1,"hello1")
+
+l1.grid(row=1,column=2)
+l2.grid(row=3,column=2)
+l3.grid(row=5,column=2)
+l4.grid(row=7,column=2)
+l5.grid(row=9,column=2)
+l6.grid(row=11,column=2)
+l7.grid(row=13,column=2)
+l8.grid(row=15,column=2)
+l9.grid(row=17,column=2)
+
+e1.grid(row=1,column=8)
+e2.grid(row=3,column=8)
+e3.grid(row=9,column=8)
+e4.grid(row=11,column=8)
+e5.grid(row=15,column=8)
+
+r1.grid(row=5,column=8)
+r2.grid(row=5,column=9)
+
+c1.grid(row=7,column=7)
+c2.grid(row=7,column=8)
+c3.grid(row=7,column=9)
+
+c.grid(row=13,column=8)
+cb.grid(row=17,column=8)
+# lb1.grid(row=2,column=50)
+lb1.pack()
+root.mainloop()
